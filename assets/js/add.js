@@ -39,7 +39,7 @@ function transcript() {
     let controlNumber = (controlSum % 11) % 10;
 
     if (controlNumber !== parseInt(genderDigit, 10)) {
-        result.innerHTML = `<p style="color:red">* ИНН не верен</p>`;
+        result.innerHTML = `<p style="color:red">* ИНН не корректный</p>`;
         return;
     }
 
