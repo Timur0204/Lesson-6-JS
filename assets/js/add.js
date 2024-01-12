@@ -30,23 +30,26 @@ function transcript() {
 
     let age = currentDate.getFullYear() - birthDate.getFullYear();
 
-    if (birthDate.getDate() !== +(userInfo.slice(5, 7), 10)) {
+    if (
+       currentDate.getMonth() === birthDate.getMonth() &&
+       currentDate.getDate() < birthDate.getDate()
+    ) {
+       age--;
+    } else if (
+        currentDate.getMonth() < birthDate.getMonth()
+    ) {
         age--;
     }
 
-    let controlSum = birthDateCode[0] * (-1) + birthDateCode[1] * 5 + birthDateCode[2] * 7 + birthDateCode[3] * 9 + birthDateCode[4] * 4 + orderNumber[0] * 6 + orderNumber[1] * 10 + orderNumber[2] * 5 + orderNumber[3] * 7;
-    
-    let controlNumber = (controlSum % 11) % 10;
-
-    if (controlNumber !== parseInt(genderDigit, 10)) {
-        result.innerHTML = `<p style="color:red">* ИНН не корректный</p>`;
-        return;
+    if (
+        currentDate.getMonth() === birthDate.getMonth() &&
+        currentDate.getDate() === birthDate.getDate()
+    ) {
+        age = 0;
     }
 
-    birthDate.setDate(birthDate.getDate() - 1);
-
-    const monthNames = [ "января", "февраля", "марта", "апреля", "мая",
-    "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"
+    const monthNames = ["января", "февраля", "марта", "апреля", "мая",
+        "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"
     ];
 
     result.innerHTML = `<p style="color:green">Всё верно</p></br><p>Дата рождения: ${birthDate.getDate()} ${monthNames[birthDate.getMonth()]} ${birthDate.getFullYear()} года</p></br><p>Пол: ${(genderDigit % 2 === 0) ? 'мужской' : 'женский'}</p></br><p>Возраст: ${age} лет</p></br>`;
