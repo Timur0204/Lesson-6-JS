@@ -49,5 +49,7 @@ function transcript() {
         "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"
     ];
 
-    result.innerHTML = `<p style="color:green">Всё верно</p><br/><p>Дата рождения: ${baseDate.getDate()} ${monthNames[baseDate.getMonth()]} ${baseDate.getFullYear()} года</p><br/><p>Пол: ${(genderDigit % 2 === 0) ? 'мужской' : 'женский'}</p><br/><p>Возраст: ${age} лет</p><br/>`;
+    result.innerHTML = `<p style="color:green">Всё верно</p><br/><p>Дата рождения: ${baseDate.getDate()} ${monthNames[baseDate.getMonth()]} ${baseDate.getFullYear()} года</p><br/><p>Пол: ${(genderDigit[9] % 2 === 0) ? 'мужской' : 'женский'}</p><br/><p>Возраст: ${age} лет</p><br/>`;
 }
+
+
