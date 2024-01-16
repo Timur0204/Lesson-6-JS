@@ -9,6 +9,8 @@ function transcript() {
     let orderNumber = userInfo.slice(5, 9);
     let genderDigit = userInfo[9];
 
+    let truegenderDigit = userInfo[8];
+
     let birthYear = 1899;
     let remainingDays = birthDateCode;
 
@@ -23,8 +25,6 @@ function transcript() {
     baseDate.setTime(baseDate.getTime() + (parseInt(remainingDays, 10) - 1) * 24 * 60 * 60 * 1000);
 
     let currentDate = new Date();
-    console.log(currentDate);
-    console.log(baseDate);
 
     if (new Date() > baseDate) {
         baseDate.setFullYear(baseDate.getFullYear() + 1);
@@ -49,7 +49,17 @@ function transcript() {
         "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"
     ];
 
-    result.innerHTML = `<p style="color:green">Всё верно</p><br/><p>Дата рождения: ${baseDate.getDate()} ${monthNames[baseDate.getMonth()]} ${baseDate.getFullYear()} года</p><br/><p>Пол: ${(genderDigit[9] % 2 === 0) ? 'мужской' : 'женский'}</p><br/><p>Возраст: ${age} лет</p><br/>`;
+    result.innerHTML = `<p style="color:green">Всё верно</p><br/><p>Дата рождения: ${baseDate.getDate()} ${monthNames[baseDate.getMonth()]} ${baseDate.getFullYear()} года</p><br/><p>Пол: ${(truegenderDigit % 2 === 0) ? 'женский' : 'мужской'}</p><br/><p>Возраст: ${age} лет</p><br/>`;
 }
+
+
+
+
+
+
+
+
+
+
 
 
